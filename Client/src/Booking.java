@@ -1,4 +1,5 @@
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 import java.awt.*;
 
 public class Booking extends JFrame {
