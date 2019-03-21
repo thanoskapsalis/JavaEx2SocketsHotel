@@ -1,5 +1,4 @@
 import javax.swing.*;
-import javax.swing.plaf.basic.DefaultMenuLayout;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -30,7 +29,7 @@ public class StartPage extends JFrame {
         booking.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Booking booking1 = new Booking();
+                Booking_UI booking1 = new Booking_UI();
                 booking1.setVisible(true);
             }
         });

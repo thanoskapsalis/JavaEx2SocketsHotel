@@ -1,6 +1,6 @@
 import java.io.Serializable;
 
-public class Booking implements Serializable  {
+public class Booking implements Serializable {
     String name;
     String lastname;
     String phone;
@@ -9,7 +9,7 @@ public class Booking implements Serializable  {
     int room_type;
     boolean breakfast;
 
-    public Booking(String name,String lastname,String phone,String arrival_date,String leave_date, int room_type,boolean breakfast)
+    public Booking(String name, String lastname, String phone, String arrival_date, String leave_date, int room_type, boolean breakfast)
     {
         this.name=name;
         this.lastname=lastname;
