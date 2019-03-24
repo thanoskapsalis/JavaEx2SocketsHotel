@@ -68,7 +68,7 @@ public class Booking_UI extends JFrame {
                 System.out.println(breakfast.isSelected());
                 Booking booking = new Booking(name_val.getText(), surrname_val.getText(), telephone_val.getText(), arrival_val.getText(), leaving_val.getText(), Room_Checksum(), breakfast.isSelected());
                 //gaining access to socket and then sending objects//
-                Client_Handler handler = new Client_Handler(booking);
+                Client_Handler handler = new Client_Handler(booking,"INSERT");
 
             }
         });

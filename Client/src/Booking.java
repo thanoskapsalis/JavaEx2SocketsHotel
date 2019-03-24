@@ -8,6 +8,7 @@ public class Booking implements Serializable  {
     String leave_date;
     int room_type;
     boolean breakfast;
+    int ID;
 
     public Booking(String name,String lastname,String phone,String arrival_date,String leave_date, int room_type,boolean breakfast)
     {
