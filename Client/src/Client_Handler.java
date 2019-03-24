@@ -26,6 +26,11 @@ public class Client_Handler {
                     writer.flush();
                     os.writeObject(booking);
                     System.out.println("Waiting for ID");
+                    int id= reader.read();
+                    System.out.println("ID Created: " + id);
+                    JOptionPane.showMessageDialog(null,"Η κράτησή σας ολοκληρώθηκε!\n" +
+                            "Ο μοναδικός αριθμός κράτησης είναι ID: "+id);
+
 
 
 

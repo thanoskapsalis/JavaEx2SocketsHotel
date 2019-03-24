@@ -34,6 +34,14 @@ public class StartPage extends JFrame {
             }
         });
 
+        search.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Search_UI search_ui = new Search_UI();
+                search_ui.setVisible(true);
+            }
+        });
+
 
     }
 

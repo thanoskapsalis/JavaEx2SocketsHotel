@@ -25,4 +25,9 @@ public class Booking implements Serializable  {
     {
         return name+" "+lastname+" "+phone+" "+arrival_date+" "+leave_date+" "+room_type+" "+breakfast;
     }
+
+    public void setID(int ID)
+    {
+        this.ID=ID;
+    }
 }

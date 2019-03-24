@@ -29,7 +29,11 @@ public class Handler {
                         System.out.println("Recieving Booking");
                         Booking booking = (Booking) is.readObject();
                         System.out.println(booking.toString());
-
+                        int id = create_ID();
+                        writer.write(id);
+                        writer.newLine();
+                        writer.flush();
+                        //booking.setID(id);
 
                     }
 
