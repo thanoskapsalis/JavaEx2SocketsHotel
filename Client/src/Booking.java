@@ -21,13 +21,29 @@ public class Booking implements Serializable  {
         this.breakfast=breakfast;
     }
 
-    public String toString()
-    {
-        return name+" "+lastname+" "+phone+" "+arrival_date+" "+leave_date+" "+room_type+" "+breakfast;
+    public String toString() {
+        String custom_br;
+        String custom_room;
+        if (breakfast == true)
+            custom_br = "✔";
+        else
+            custom_br = "✘";
+
+        if (room_type == 1)
+            custom_room = "Μονοκλινο";
+        else if (room_type == 2)
+            custom_room = "Δίκλινο";
+        else
+            custom_room = "Τρίκλινο";
+
+
+        return ID+"\t"+name + "\t" + lastname + "\t" + phone + "\t" + arrival_date + "\t" + leave_date + "\t" + custom_room + "\t" + custom_br;
     }
 
     public void setID(int ID)
     {
         this.ID=ID;
     }
+    public String getName(){return name;}
+    public String getArrival_date(){return arrival_date;}
 }

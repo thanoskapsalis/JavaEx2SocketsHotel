@@ -21,7 +21,6 @@ public class Booking_UI extends JFrame {
         super("Νέα Κράτηση");
         setSize(600, 300);
         setResizable(false);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLayout(new GridLayout(8, 2));
 
 
