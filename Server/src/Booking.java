@@ -50,6 +50,8 @@ public class Booking implements Serializable {
         return name;
     }
 
+    public String getLastname(){return lastname;}
+
     public String getArrival_date() {
         return arrival_date;
     }

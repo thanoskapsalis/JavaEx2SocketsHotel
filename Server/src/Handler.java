@@ -83,10 +83,13 @@ public class Handler {
     public Booking Search(String tosearch)
     {
         Booking toreturn = null;
+        String full_name;
         for(int i=0; i<Main.bookings.size(); i++)
         {
+            full_name=Main.bookings.get(i).getName()+" " + Main.bookings.get(i).getLastname();
+            System.out.println("Customer:" + full_name);
             System.out.println(Main.bookings.get(i).toString());
-            if(Main.bookings.get(i).getName().equals(tosearch) || Main.bookings.get(i).getArrival_date().equals(tosearch)) {
+            if(full_name.equals(tosearch) || Main.bookings.get(i).getArrival_date().equals(tosearch)) {
                 toreturn = Main.bookings.get(i);
                 break;
             }

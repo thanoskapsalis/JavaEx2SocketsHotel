@@ -10,13 +10,17 @@ public class Search_UI extends JFrame {
         super("Αναζήτηση Κράτησης");
         setSize(1200, 200);
         setResizable(false);
-        setLayout(new GridLayout(4, 1));
+        setLayout(new GridLayout(6, 1));
 
-        JLabel label = new JLabel("Εισάγετε Όνομα ή Ημερομηνία κράτησης");
+        JLabel label = new JLabel("Εισάγετε Όνοματεπώνυμο Κράτησης");
+        JLabel date_label = new JLabel("Εισάγετε την ημερομηνία Κράτησης* (dd/mm/yyyy)");
+        JTextField date = new JTextField();
         JTextField tosearch = new JTextField();
         JButton confirm = new JButton("Αναζήτηση");
         add(label);
         add(tosearch);
+        add(date_label);
+        add(date);
         add(confirm);
 
 
