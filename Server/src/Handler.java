@@ -46,8 +46,8 @@ public class Handler {
 
                     if (message.equals("SEARCH")) {
                         System.out.println("Search request. Ready to recieve Keyword");
-                        String tosearch =reader.readLine();
-                        os.writeObject(Search(tosearch));
+                        Booking booking1 = (Booking) is.readObject();
+                        os.writeObject(Search(booking1));
                     }
 
 
@@ -80,16 +80,23 @@ public class Handler {
 
     }
 
-    public Booking Search(String tosearch)
+    //Check if name is true and date is false !!!!!!!
+    public Booking Search(Booking booking1)
     {
         Booking toreturn = null;
         String full_name;
+        String tosearch=booking1.getName();
+        String date =booking1.getArrival_date();
         for(int i=0; i<Main.bookings.size(); i++)
         {
             full_name=Main.bookings.get(i).getName()+" " + Main.bookings.get(i).getLastname();
             System.out.println("Customer:" + full_name);
             System.out.println(Main.bookings.get(i).toString());
             if(full_name.equals(tosearch) || Main.bookings.get(i).getArrival_date().equals(tosearch)) {
+                toreturn = Main.bookings.get(i);
+                break;
+            }
+            if(full_name.equals(tosearch) && Main.bookings.get(i).getArrival_date().equals(date)) {
                 toreturn = Main.bookings.get(i);
                 break;
             }

@@ -9,6 +9,7 @@ public class Client_Handler {
     Booking booking;
     String flag;
     String tosearch;
+    String date;
     String result;
 
 
@@ -20,10 +21,11 @@ public class Client_Handler {
 
     }
 
-    public Client_Handler(String tosearch, String flag) {
+    public Client_Handler(String tosearch, String date,String flag) {
         System.out.println("Socket Created");
         this.tosearch = tosearch;
         this.flag=flag;
+        this.date=date;
         run();
     }
 
@@ -63,9 +65,8 @@ public class Client_Handler {
                     writer.newLine();
                     writer.flush();
                     System.out.println("Sending key");
-                    writer.write(tosearch);
-                    writer.newLine();
-                    writer.flush();
+                    Booking booking1 = new Booking(tosearch,date);
+                    os.writeObject(booking1);
                     Booking booking =(Booking) is.readObject();
                     if(booking==null)
                     {

@@ -22,6 +22,11 @@ public class Booking implements Serializable {
         this.breakfast = breakfast;
     }
 
+    public Booking(String name, String arrival_date) {
+        this.name = name;
+        this.arrival_date = arrival_date;
+    }
+
     public String toString() {
         String custom_br;
         String custom_room;
@@ -38,7 +43,7 @@ public class Booking implements Serializable {
             custom_room = "Τρίκλινο";
 
 
-        return ID+"\t"+name + "\t" + lastname + "\t" + phone + "\t" + arrival_date + "\t" + leave_date + "\t" + custom_room + "\t" + custom_br;
+        return ID + "\t" + name + "\t" + lastname + "\t" + phone + "\t" + arrival_date + "\t" + leave_date + "\t" + custom_room + "\t" + custom_br;
     }
 
 
@@ -50,7 +55,9 @@ public class Booking implements Serializable {
         return name;
     }
 
-    public String getLastname(){return lastname;}
+    public String getLastname() {
+        return lastname;
+    }
 
     public String getArrival_date() {
         return arrival_date;

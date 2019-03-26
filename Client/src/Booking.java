@@ -21,6 +21,12 @@ public class Booking implements Serializable  {
         this.breakfast=breakfast;
     }
 
+    public  Booking(String name,String arrival_date)
+    {
+        this.name=name;
+        this.arrival_date=arrival_date;
+    }
+
     public String toString() {
         String custom_br;
         String custom_room;

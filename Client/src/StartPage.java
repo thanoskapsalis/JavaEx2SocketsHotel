@@ -42,6 +42,14 @@ public class StartPage extends JFrame {
             }
         });
 
+        cancel.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Delete_UI delete_ui = new Delete_UI();
+                delete_ui.setVisible(true);
+            }
+        });
+
 
     }
 
