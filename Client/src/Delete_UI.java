@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Delete_UI extends JFrame {
 
@@ -15,5 +17,15 @@ public class Delete_UI extends JFrame {
         add(label);
         add(todelete);
         add(confirm);
+
+        confirm.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Booking booking= new Booking(Integer.parseInt(todelete.getText()));
+                booking.setflag("DELETE");
+                Client_Handler client_handler=new Client_Handler(booking);
+
+            }
+        });
     }
 }

@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6eb2861f-f3c2-4bd3-9910-2b2b806c7107" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Client/src/Delete_UI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/ServerWake.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ServerWake.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/src/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/Booking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/Booking_UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/Booking_UI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/src/Client_Handler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/Client_Handler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/Delete_UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/Delete_UI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/src/Search_UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/Search_UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/StartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/StartPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Booking.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Handler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handler.java" afterDir="false" />
@@ -24,7 +26,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
+            <state relative-caret-position="76">
               <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
             </state>
           </provider>
@@ -33,21 +35,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Booking.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-170">
-              <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+            <state relative-caret-position="1292">
+              <caret line="71" selection-start-line="71" selection-end-line="71" />
               <folding>
-                <element signature="e#1439#1440#0" expanded="true" />
-                <element signature="e#1470#1471#0" expanded="true" />
+                <element signature="e#786#787#0" expanded="true" />
+                <element signature="e#812#813#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ServerWake.java">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Handler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="82" column="53" selection-start-line="82" selection-start-column="53" selection-end-line="82" selection-end-column="53" />
+            <state relative-caret-position="279">
+              <caret line="51" column="17" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -71,15 +78,17 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/Main.java" />
-        <option value="$PROJECT_DIR$/src/Booking.java" />
+        <option value="$PROJECT_DIR$/src/ServerWake.java" />
         <option value="$PROJECT_DIR$/src/Handler.java" />
+        <option value="$PROJECT_DIR$/src/Booking.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
-    <option name="width" value="814" />
-    <option name="height" value="867" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1280" />
+    <option name="y" value="23" />
+    <option name="width" value="1280" />
+    <option name="height" value="1350" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -87,7 +96,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -105,12 +113,13 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553600254027" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553698674121" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
@@ -166,16 +175,17 @@
       <workItem from="1553521069926" duration="6989000" />
       <workItem from="1553599377791" duration="882000" />
       <workItem from="1553621439244" duration="2036000" />
+      <workItem from="1553687043373" duration="6641000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20025000" />
+    <option name="totallyTimeSpent" value="26666000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <frame x="1280" y="23" width="1280" height="1350" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.42003232" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.2065131" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -184,7 +194,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.31359354" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.31319556" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -213,26 +223,29 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
+        <state relative-caret-position="76">
           <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ServerWake.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Booking.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-170">
-          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+        <state relative-caret-position="1292">
+          <caret line="71" selection-start-line="71" selection-end-line="71" />
           <folding>
-            <element signature="e#1439#1440#0" expanded="true" />
-            <element signature="e#1470#1471#0" expanded="true" />
+            <element signature="e#786#787#0" expanded="true" />
+            <element signature="e#812#813#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Handler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="82" column="53" selection-start-line="82" selection-start-column="53" selection-end-line="82" selection-end-column="53" />
+        <state relative-caret-position="279">
+          <caret line="51" column="17" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

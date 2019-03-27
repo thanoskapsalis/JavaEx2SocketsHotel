@@ -1,6 +1,7 @@
 import java.io.Serializable;
 
 public class Booking implements Serializable  {
+    String flag;
     String name;
     String lastname;
     String phone;
@@ -27,6 +28,11 @@ public class Booking implements Serializable  {
         this.arrival_date=arrival_date;
     }
 
+    public Booking(int ID)
+    {
+        this.ID=ID;
+    }
+
     public String toString() {
         String custom_br;
         String custom_room;
@@ -50,7 +56,16 @@ public class Booking implements Serializable  {
     {
         this.ID=ID;
     }
+
+    public int getID(){return ID;}
+
     public String getName(){return name;}
+
     public String getArrival_date(){return arrival_date;}
+
     public String getLastname(){return lastname;}
+
+    public void setflag(String flag){this.flag=flag;}
+
+    public String getFlag(){return flag;}
 }

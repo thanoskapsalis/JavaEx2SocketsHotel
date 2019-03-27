@@ -13,7 +13,7 @@ public class Client_Handler {
     String result;
 
 
-    public Client_Handler(Booking booking, String flag) {
+    public Client_Handler(Booking booking) {
         System.out.println("Socket Created");
         this.booking = booking;
         this.flag = flag;
@@ -21,66 +21,56 @@ public class Client_Handler {
 
     }
 
-    public Client_Handler(String tosearch, String date,String flag) {
-        System.out.println("Socket Created");
-        this.tosearch = tosearch;
-        this.flag=flag;
-        this.date=date;
-        run();
-    }
-
     public void run() {
         try {
             Socket socket = new Socket("localhost", 5555);
             ObjectOutputStream os = new ObjectOutputStream(socket.getOutputStream());
             ObjectInputStream is = new ObjectInputStream(socket.getInputStream());
-            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-            BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            writer.write("START");
-            writer.newLine();
-            writer.flush();
+
+            //new Request Waking up the server//
+            ServerWake serverWake = new ServerWake();
+            os.writeObject(serverWake);
+            System.out.println("Request sent waiting for server to reply........");
+            ServerWake serverWake1 = (ServerWake) is.readObject();
 
 
-            String message = reader.readLine();
-            if (message.equals("WAITING")) {
+            if (serverWake1.getResponse_message().equals("WAITING")) {
                 System.out.println("Server Accepted the connection");
+                os.writeObject(booking);
+                System.out.println(booking.getFlag());
 
-
-                if (flag.equals("INSERT")) {
+                if (booking.getFlag().equals("INSERT")) {
                     System.out.println("Sending item to Server");
-                    writer.write("INSERT");
-                    writer.newLine();
-                    writer.flush();
-                    os.writeObject(booking);
                     System.out.println("Waiting for ID");
-                    int id = reader.read();
-                    System.out.println("ID Created: " + id);
-                    JOptionPane.showMessageDialog(null, "Η κράτησή σας ολοκληρώθηκε!\n" + "Ο μοναδικός αριθμός κράτησης είναι ID: " + id);
+                    Booking booking = (Booking) is.readObject();
+                    System.out.println("ID Created: " + booking.getID());
+                    JOptionPane.showMessageDialog(null, "Η κράτησή σας ολοκληρώθηκε!\n" + "Ο μοναδικός αριθμός κράτησης είναι ID: " + booking.getID());
                 }
 
 
-                if (flag.equals("SEARCH")) {
+                if (booking.getFlag().equals("SEARCH")) {
                     System.out.println("Searching the server for reservations");
-                    writer.write("SEARCH");
-                    writer.newLine();
-                    writer.flush();
                     System.out.println("Sending key");
-                    Booking booking1 = new Booking(tosearch,date);
-                    os.writeObject(booking1);
-                    Booking booking =(Booking) is.readObject();
-                    if(booking==null)
-                    {
+                    Booking booking = (Booking) is.readObject();
+                    if (booking == null) {
                         JOptionPane.showMessageDialog(null, "Δεν υπάρχει κράτηση σε αυτό το όνομα η αυτήν την ημερομηνία");
-                    }
-                    else
-                    {
+                    } else {
                         System.out.println(booking.toString());
-                        result=booking.toString();
+                        result = booking.toString();
 
                     }
-
-
                 }
+
+                if (booking.getFlag().equals("DELETE")) {
+                    System.out.println("Delete item from server");
+                    Booking booking = (Booking) is.readObject();
+                    if(booking.getFlag().equals("DELETE OK"))
+                        JOptionPane.showMessageDialog(null,"Η Κράτηση σας διαγράφηκε με επιτυχία");
+                    else
+                        JOptionPane.showMessageDialog(null,"Δεν υπάρχει κράτηση με αυτό το ID");
+                }
+
+
 
 
             } else {
@@ -95,12 +85,9 @@ public class Client_Handler {
         }
     }
 
-    public String getResult()
-    {
-        return  result;
+    public String getResult() {
+        return result;
     }
-
-
 
 
 }

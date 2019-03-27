@@ -33,7 +33,11 @@ public class Search_UI extends JFrame {
         confirm.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Client_Handler handler = new Client_Handler(tosearch.getText(),date.getText(),"SEARCH");
+                if(date.getText().equals(""))
+                    date.setText(null);
+                Booking booking= new Booking(tosearch.getText(),date.getText());
+                booking.setflag("SEARCH");
+                Client_Handler handler = new Client_Handler(booking);
                 System.out.println("Result: " +handler.getResult());
                 reservation.append(handler.getResult());
 

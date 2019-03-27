@@ -17,37 +17,35 @@ public class Handler {
                 Socket socket = server.accept();
                 ObjectOutputStream os = new ObjectOutputStream(socket.getOutputStream());
                 ObjectInputStream is = new ObjectInputStream(socket.getInputStream());
-                BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-                BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                String message = reader.readLine();
-                System.out.println(message);
-                if (message.equals("START")) {
+                ServerWake serverWake= (ServerWake) is.readObject();
+
+
+                if (serverWake.getWake_message().equals("START")) {
+
                     System.out.println("Connection Accepted");
-                    writer.write("WAITING");
-                    writer.newLine();
-                    writer.flush();
+                    os.writeObject(serverWake);
+                    System.out.println("Recieving from Client");
+                    Booking booking = (Booking) is.readObject();
+                    System.out.println(booking.getFlag());
 
-
-                    message = reader.readLine();
-
-
-                    if (message.equals("INSERT")) {
-                        System.out.println("Recieving Booking");
-                        Booking booking = (Booking) is.readObject();
+                    if (booking.getFlag().equals("INSERT")) {
+                        System.out.println("SAVING NEW RESERVATION");
                         Main.bookings.add(booking);
                         int id = create_ID();
-                        writer.write(id);
-                        writer.newLine();
-                        writer.flush();
                         booking.setID(id);
+                        os.writeObject(booking);
                         System.out.println(booking.toString());
                     }
 
 
-                    if (message.equals("SEARCH")) {
+                    if (booking.getFlag().equals("SEARCH")) {
                         System.out.println("Search request. Ready to recieve Keyword");
-                        Booking booking1 = (Booking) is.readObject();
-                        os.writeObject(Search(booking1));
+                        os.writeObject(Search(booking));
+                    }
+
+                    if(booking.getFlag().equals("DELETE")){
+                        System.out.println("Delete Request");
+                        os.writeObject(Delete(booking));
                     }
 
 
@@ -104,6 +102,21 @@ public class Handler {
                 toreturn=null;
         }
         return toreturn ;
+    }
+
+    public Booking Delete(Booking booking)
+    {
+        for(int i=0; i<Main.bookings.size(); i++)
+        {
+            if(Main.bookings.get(i).getID()==booking.getID())
+            {
+                Main.bookings.remove(Main.bookings.get(i));
+                booking.setflag("DELETE OK");
+                break;
+            }else
+                booking.setflag("DELETE FAIL");
+        }
+        return booking;
     }
 
 }
