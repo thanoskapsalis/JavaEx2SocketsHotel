@@ -12,8 +12,11 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/////Θάνος Καψάλης 321/2015088/////
+
 public class Booking_UI extends JFrame {
 
+    //Ορισμός στοιχείων ui//
     JRadioButton single = new JRadioButton("Μονόκλινο");
     JRadioButton doubler = new JRadioButton("Δίκλυνο");
     JRadioButton triple = new JRadioButton("Τρίκλινο");
@@ -22,13 +25,15 @@ public class Booking_UI extends JFrame {
     JTextField name_val = new JTextField();
     JTextField surrname_val = new JTextField();
     JTextField telephone_val = new JTextField();
-    ButtonGroup group= new ButtonGroup();
+    ButtonGroup group = new ButtonGroup();
 
 
     public Booking_UI() {
         super("Νέα Κράτηση");
         setSize(600, 300);
         setResizable(false);
+
+        //Χρησιμοποιούμε ένα Group για τα Radio Button μας έτσι ώστε να επιλέγεται ένα κάθε φορά
         setLayout(new GridLayout(8, 2));
         group.add(single);
         group.add(doubler);
@@ -78,6 +83,7 @@ public class Booking_UI extends JFrame {
                         Booking booking = new Booking(name_val.getText(), surrname_val.getText(), telephone_val.getText(), arrival_val.getText(), leaving_val.getText(), Room_Checksum(), breakfast.isSelected());
                         //gaining access to socket and then sending objects//
                         booking.setflag("INSERT");
+                        //Αποστολή αντικειμένου μαζί με το flag στον Handler του Client ώστε να γίνει η επικοινωνία με τον server
                         Client_Handler handler = new Client_Handler(booking);
                     } else {
                         JOptionPane.showMessageDialog(null, "Λανθασμένη Εισαγωγή στοιχείων πορπσθήστε ξανά");
@@ -92,6 +98,10 @@ public class Booking_UI extends JFrame {
 
 
     }
+
+
+    //Ελέγχουμε αν ο χρήστης έχει συμπληρώσει όλα τα πεδία της φόρμας καθώς και άμα έχει βάλει την ημερομηνία στο σωστό Format
+    //Επιστρέφει true η false ανάλογα με το αν τα στοιχεία είναι σωστά η όχι ώστε να προχωρήσει στην εισαγωγή η όχι
 
     public boolean InsertChecksum() throws ParseException {
         //Χρησιμοποιούμε Custom toreturn αντι να επιστρέφουμε κάθε φορά γιατι αλλιώς θα θέλαμε το finally
@@ -114,6 +124,9 @@ public class Booking_UI extends JFrame {
 
     }
 
+
+    //Ανάλογα τον τύπο δωματίου επιστρέφουμε το κατάλληλό flag (1 2 ή 3)
+    //Άμα δεν επιλέξει τίποτα στέλνεται το 0 και η InsertChecksum() ενημερώνει με κατάλληλο μύνημα τον χρήστη
     public int Room_Checksum() {
 
         if (single.isSelected()) {

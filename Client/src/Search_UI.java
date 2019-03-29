@@ -6,6 +6,10 @@ import java.awt.event.ActionListener;
 public class Search_UI extends JFrame {
 
 
+    //// Θάνος Καψάλης 321/2015088 ////
+
+    //UI αναζήτησης//
+
     public Search_UI() {
         super("Αναζήτηση Κράτησης");
         setSize(1200, 400);
@@ -27,12 +31,13 @@ public class Search_UI extends JFrame {
         JTextArea reservation = new JTextArea();
         reservation.setEditable(false);
         add(reservation);
-        reservation.append("ID" + "\t" + "Όνομα" + "\t" + "Επώνυμο" + "\t" + "Τηλέφωνο" + "\t" + "Ημ.Αφιξης" + "\t" + "Ημ.αναχωρησης" + "\t" + "Τύπος Δωματίου" + "\t" + "Πρωινό" + "\n");
+        reservation.append("ID" + "\t" + "Name" + "\t" + "Surname" + "\t" + "Phone" + "\t" + "Check In" + "\t" + "Check Out" + "\t" + "Room type" + "\t" + "Breakfast" + "\n");
 
 
         confirm.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //Επικοινωνία με τον Handler για αναζήτηση στέλνωντας ένα αντικείμενο με το κατάλληλο flag
                 if(date.getText().equals(""))
                     date.setText(null);
                 Booking booking= new Booking(tosearch.getText(),date.getText());

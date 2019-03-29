@@ -5,6 +5,10 @@ import java.awt.event.ActionListener;
 
 public class StartPage extends JFrame {
 
+    ///// Θάνος Καψάλης 321/2015088 /////
+
+    //Κεντρική οθόνη που παραπέμει σε κάθε υπολειτουργία του προγράμματος
+
     public StartPage() {
         super("Αρχική Σελίδα");
         setSize(600, 200);
@@ -22,7 +26,7 @@ public class StartPage extends JFrame {
         JButton search = new JButton("Αναζήτηση");
         add(search);
 
-        JButton cancel = new JButton("Ακύρωση");
+        JButton cancel = new JButton("Διαγραφή");
         add(cancel);
 
 
