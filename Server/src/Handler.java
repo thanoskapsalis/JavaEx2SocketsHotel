@@ -1,7 +1,13 @@
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Random;
 
 
@@ -33,6 +39,7 @@ public class Handler {
                         Main.bookings.add(booking);
                         int id = create_ID();
                         booking.setID(id);
+                        booking.setPrice(Price_Calculator(booking));
                         os.writeObject(booking);
                         System.out.println(booking.toString());
                     }
@@ -60,6 +67,8 @@ public class Handler {
             } catch (IOException ex) {
 
             } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (ParseException e) {
                 e.printStackTrace();
             } finally {
 
@@ -117,6 +126,65 @@ public class Handler {
                 booking.setflag("DELETE FAIL");
         }
         return booking;
+    }
+
+    public long Price_Calculator(Booking booking) throws ParseException {
+        Date arrival= new SimpleDateFormat("dd/MM/yyyy").parse(booking.getArrival_date());
+        Date leave = new SimpleDateFormat("dd/MM/yyyy").parse(booking.getLeave_date());
+        int room_type=booking.getRoom_type();
+        boolean breakfast=booking.get_Breakfast();
+        long price=0;
+        long dayspass = ChronoUnit.DAYS.between(arrival.toInstant(),leave.toInstant());
+        LocalDate localDate= arrival.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        int month=localDate.getMonthValue();
+        System.out.println(month);
+        //υποθέτουμε οτι αμα κλείσεις το δωματιο τουρηστική περίοδο θα χρεωθεί ολο με τιμή τουριστικής περιόδου
+        //π.χ αμα κλείσουμε 30 Σεπτέμβρη με 2 Οκτώβρη θα χρεωθεί σαν τουριστικό
+
+        if(month>=6 && month<=9)
+        {
+            if(room_type==1)
+                if (breakfast==true)
+                    price=80*dayspass+8;
+                else
+                    price=80*dayspass;
+
+            if(room_type==2)
+                if(breakfast==true)
+                    price=120*dayspass+16;
+                else
+                    price=120*dayspass;
+            if(room_type==3)
+                if(breakfast==true)
+                    price=150*dayspass+16;
+                else
+                    price=150*dayspass;
+
+        }
+        else
+        {
+            if(room_type==1)
+                if (breakfast==true)
+                    price=40*dayspass+8;
+                else
+                    price=40*dayspass;
+
+            if(room_type==2)
+                if(breakfast==true)
+                    price=70*dayspass+16;
+                else
+                    price=70*dayspass;
+            if(room_type==3)
+                if(breakfast==true)
+                    price=85*dayspass+16;
+                else
+                    price=85*dayspass;
+
+        }
+
+
+
+        return price;
     }
 
 }

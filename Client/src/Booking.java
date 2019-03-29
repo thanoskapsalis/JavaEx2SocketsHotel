@@ -10,6 +10,7 @@ public class Booking implements Serializable  {
     int room_type;
     boolean breakfast;
     int ID;
+    long price;
 
     public Booking(String name,String lastname,String phone,String arrival_date,String leave_date, int room_type,boolean breakfast)
     {
@@ -49,7 +50,7 @@ public class Booking implements Serializable  {
             custom_room = "Τρίκλινο";
 
 
-        return ID+"\t"+name + "\t" + lastname + "\t" + phone + "\t" + arrival_date + "\t" + leave_date + "\t" + custom_room + "\t" + custom_br;
+        return ID+"\t"+name + "\t" + lastname + "\t" + phone + "\t" + arrival_date + "\t" + leave_date + "\t\t" + custom_room + "\t\t" + custom_br;
     }
 
     public void setID(int ID)
@@ -63,9 +64,19 @@ public class Booking implements Serializable  {
 
     public String getArrival_date(){return arrival_date;}
 
+    public String getLeave_date(){return  leave_date;}
+
     public String getLastname(){return lastname;}
+
+    public int getRoom_type(){return  room_type;}
+
+    public boolean get_Breakfast(){return breakfast;}
 
     public void setflag(String flag){this.flag=flag;}
 
     public String getFlag(){return flag;}
+
+    public void setPrice(long price){this.price=price;}
+
+    public long getPrice(){return price;}
 }

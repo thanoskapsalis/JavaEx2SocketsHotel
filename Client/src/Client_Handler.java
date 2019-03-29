@@ -44,7 +44,8 @@ public class Client_Handler {
                     System.out.println("Waiting for ID");
                     Booking booking = (Booking) is.readObject();
                     System.out.println("ID Created: " + booking.getID());
-                    JOptionPane.showMessageDialog(null, "Η κράτησή σας ολοκληρώθηκε!\n" + "Ο μοναδικός αριθμός κράτησης είναι ID: " + booking.getID());
+                    JOptionPane.showMessageDialog(null, "Η κράτησή σας ολοκληρώθηκε!\n" + "Ο μοναδικός αριθμός κράτησης είναι ID: " + booking.getID()
+                    +"\n Το ποσό πληρωμής είναι: "+booking.getPrice()+"€");
                 }
 
 

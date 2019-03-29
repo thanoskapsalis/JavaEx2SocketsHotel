@@ -8,7 +8,7 @@ public class Search_UI extends JFrame {
 
     public Search_UI() {
         super("Αναζήτηση Κράτησης");
-        setSize(1200, 200);
+        setSize(1200, 400);
         setResizable(false);
         setLayout(new GridLayout(6, 1));
 
