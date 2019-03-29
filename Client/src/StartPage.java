@@ -7,7 +7,7 @@ public class StartPage extends JFrame {
 
     public StartPage() {
         super("Αρχική Σελίδα");
-        setSize(600, 600);
+        setSize(600, 200);
         setResizable(false);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
